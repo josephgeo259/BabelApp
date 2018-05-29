@@ -4,29 +4,29 @@ Comment.destroy_all
 
 geo = User.create!(
     name: "Geo", 
-    location: "Atlanta" 
-    spoken_languages: "Malayalam" 
-    learning_interest:"French")
+    location: "Atlanta" ,
+    spoken_languages: "Malayalam", 
+    learning_interests: "French")
 
 bestblog = Blog.create!(
-    title:"French",
-    post:"French is second only to English for the number of countries where it has official status – 32 as opposed to 45. And, with 56 members, La Francophonie is now larger than the Commonwealth, which has 53.French is also the only language, with English, that is taught in every country of the world, with 100 million students and 2 million teachers – 20 % of whom are outside of francophone countries.",
+    title: "French",
+    post: "French is second only to English for the number of countries where it has official status – 32 as opposed to 45. And, with 56 members, La Francophonie is now larger than the Commonwealth, which has 53.French is also the only language, with English, that is taught in every country of the world, with 100 million students and 2 million teachers – 20 % of whom are outside of francophone countries.",
     user_id: geo.id)
 
 comment = Comment.create!(
     title: "France", 
-    description:"In 700-500BC the Celtic Gauls arrive in France. In 58-50BC Roman Emperor Julius Caesar defeats the Gauls and France becomes part of the Roman Empire until 476AD. French was ruled by kings for many centuries until the storming of the Bastille during the French Revolution in 1789. Then Napoleon becomes Emperor of the French Republic until he is sent to exile.", 
+    description: "In 700-500BC the Celtic Gauls arrive in France. In 58-50BC Roman Emperor Julius Caesar defeats the Gauls and France becomes part of the Roman Empire until 476AD. French was ruled by kings for many centuries until the storming of the Bastille during the French Revolution in 1789. Then Napoleon becomes Emperor of the French Republic until he is sent to exile.", 
     user_id: geo.id)
 
 joshi = User.create!(
     name: "Joshi", 
-    location: "Japan" 
-    spoken_languages: "Japanese" 
-    learning_interest:"Spanish")
+    location: "Japan",
+    spoken_languages: "Japanese", 
+    learning_interests:"Spanish")
 
 newblog = Blog.create!(
-    title:"Spanish", 
-    post:"Spanish is a dominant language in the West. Spanish is spoken by 500 million people (the most spoken language in the world after Mandarin Chinese) and it’s growing more rapidly than many other languages. By 2050 Spanish will reach 600 million speakers. ", 
+    title: "Spanish", 
+    post: "Spanish is a dominant language in the West. Spanish is spoken by 500 million people (the most spoken language in the world after Mandarin Chinese) and it’s growing more rapidly than many other languages. By 2050 Spanish will reach 600 million speakers. ", 
     user_id: geo.id)
 
 comment = Comment.create!(
@@ -36,9 +36,9 @@ comment = Comment.create!(
 
 annie = User.create!(
     name: "Annie", 
-    location: "India" 
-    spoken_languages: "Hindi" 
-    learning_interest:"Swahili")
+    location: "India", 
+    spoken_languages: "Hindi", 
+    learning_interests:"Swahili")
 
 myblog = Blog.create!(
     title:"Swahilli", 
