@@ -1,5 +1,5 @@
 {
-    "name": "babelapp" ,
+    "name": "babel_app" ,
     "engines": {
         "node": "9.9.0"
     },
