@@ -8,7 +8,7 @@ geo = User.create!(
     spoken_languages: "Malayalam", 
     learning_interests: "French")
 
-bestblog = Blog.create!(
+blog = Blog.create!(
     title: "French",
     post: "French is second only to English for the number of countries where it has official status – 32 as opposed to 45. And, with 56 members, La Francophonie is now larger than the Commonwealth, which has 53.French is also the only language, with English, that is taught in every country of the world, with 100 million students and 2 million teachers – 20 % of whom are outside of francophone countries.",
     user_id: geo.id)
@@ -24,7 +24,7 @@ joshi = User.create!(
     spoken_languages: "Japanese", 
     learning_interests:"Spanish")
 
-newblog = Blog.create!(
+blog = Blog.create!(
     title: "Spanish", 
     post: "Spanish is a dominant language in the West. Spanish is spoken by 500 million people (the most spoken language in the world after Mandarin Chinese) and it’s growing more rapidly than many other languages. By 2050 Spanish will reach 600 million speakers. ", 
     user_id: joshi.id)
@@ -40,14 +40,14 @@ annie = User.create!(
     spoken_languages: "Hindi", 
     learning_interests:"Swahili")
 
-myblog = Blog.create!(
+blog = Blog.create!(
     title:"Swahilli", 
     post:"a Bantu language widely used as a lingua franca in East Africa and having official status in several countries. The people of Zanzibar and nearby coastal regions, descendants of the original speakers of Swahili", 
     user_id: annie.id)
 
 comment = Comment.create!(
     title: "Zanzibar", 
-    description:"The name Zanzibar is an Arabic word that is translated as 'the coast of black people'. The Zanzibar archipelago is a series of islands on the Indian Ocean about 16-31 miles from the mainland Republic of Tanzania. It is a semi-autonomous region of the Tanzania. The island has the best beaches in the world - and this is not an exaggeration. If you love lazing around in the sun, then this is the place to go. Below are a few facts that will give you an overview of the Island country.", 
+    description: "The Zanzibar archipelago is a series of islands on the Indian Ocean about 16-31 miles from the mainland Republic of Tanzania. It is a semi-autonomous region of the Tanzania. The island has the best beaches in the world - and this is not an exaggeration. If you love lazing around in the sun, then this is the place to go. Below are a few facts that will give you an overview of the Island country.", 
     user_id: annie.id)
 
     puts "DB:Seeded"

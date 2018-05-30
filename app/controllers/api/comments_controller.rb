@@ -2,8 +2,8 @@ class Api::CommentsController < ApplicationController
     
 
 def index
-    @comment = User.find(params[:user_id]).comment
-    render json: @comment
+    @comments = User.find(params[:user_id]).comments
+    render json: @comments
 end
 
 def show
@@ -33,8 +33,8 @@ end
   
 
 private
- def procedure_params
-    params.require(:comments).permit(:title, :description:, :user_id   )
+ def comment_params
+    params.require(:comment).permit(:title, :description, :user_id)
 end
 end
 
