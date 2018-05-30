@@ -1,7 +1,7 @@
 class Api::BlogsController < ApplicationController
     
 def index
-    @blog = User.find(params[:user_id]).blog
+    @blogs = User.find(params[:user_id]).blogs
     render json: @blog
 end
 
@@ -33,8 +33,8 @@ end
 
 private
  def procedure_params
-    params.require(:blogs).permit(:)
+    params.require(:blogs).permit(:title, :post, :user_id )
 end
 end
-end
+
 

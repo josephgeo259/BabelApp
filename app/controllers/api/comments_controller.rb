@@ -34,7 +34,7 @@ end
 
 private
  def procedure_params
-    params.require(:comments).permit(:)
+    params.require(:comments).permit(:title, :description:, :user_id   )
 end
 end
-end
+
