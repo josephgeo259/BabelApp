@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Users from './components/Users'
+import SingleUsers from './components/SingleUser'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-       <h1>Welcome to the BabelApp</h1>
-      </div>
-    );
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/" component={Users} />
+            <Route path="/:id" component={SingleUser} />
+          </Switch>
+        </div>
+      </Router>
+    )
   }
 }
 
-export default App;
+export default App
