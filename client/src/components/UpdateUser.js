@@ -16,16 +16,9 @@ class UpdateUser extends Component {
         const user = this.props;
         this.setState({ user: user });
     }
-    handleSubmit = async event => {
-        event.preventDefault()
-        const transferdata = {
-            name: this.state.name,
-            location: this.state.location,
-            spoken_languages: this.state.spoken_languages,
-            learning_interests: this.state.learning_interests
-        }}
+   
 
-    editUser = event => {
+    handleSumbit = event => {
         event.preventDefault();
         const userId = this.props.user.id;
         const transferdata = this.state.user;
@@ -45,6 +38,7 @@ class UpdateUser extends Component {
 
 
     render() {
+        console.log
         return(
 
             <div>
@@ -52,19 +46,19 @@ class UpdateUser extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name: </label>
-                        <input onChange={this.handleChange} type="text" name="name" value={this.state.user}/>
+                        <input onChange={this.handleChange} type="text" name="name" value={this.props.user.name}/>
                     </div>
                     <div>
                         <label htmlFor="location">Location: </label>
-                        <input onChange={this.handleChange} type="text" name="location" value={this.state.user} />
+                        <input onChange={this.handleChange} type="text" name="location" value={this.props.user.location} />
                     </div>
                     <div>
-                        <label htmlFor="specialty">Spoken Languages: </label>
-                        <input onChange={this.handleChange} type="text" name="spoken_languages" value={this.state.user}/>
+                        <label htmlFor="spoken_languages">Spoken Languages: </label>
+                        <input onChange={this.handleChange} type="text" name="spoken_languages" value={this.props.user.spoken_languages}/>
                     </div>
                     <div>
                         <label htmlFor="learning_interests">Learning Interests: </label>
-                        <input onChange={this.handleChange} type="text" name="learning_interests" value={this.state.user}/>
+                        <input onChange={this.handleChange} type="text" name="learning_interests" value={this.props.user.learning_interests}/>
                     </div>
 
                     <button>Submit</button>

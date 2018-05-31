@@ -8,6 +8,8 @@ class SingleUser extends Component {
 
     state = {
         user: {},
+        comments:[],
+        blogs:[],
         showUpdate: false
     }
 
@@ -16,7 +18,7 @@ class SingleUser extends Component {
     };
 
      componentDidMount() {
-       this.getSingleUser();}
+       this.getSingleUser()}
 
     getSingleUser = async () => {
             const userId = this.props.match.params.id;
@@ -69,24 +71,23 @@ class SingleUser extends Component {
     }
 
     render() {
+
         return (
             
                 <div>
                     <h1></h1>
                     <Link to='/'><button>Go Home</button></Link>
                     <button onClick={this.removeUser}>Delete User</button>
-                
-
                     <button onClick={this.toggleShowUpdate}>
                         Update {this.state.user.name}
                     </button>
-                    {this.state.updateUser ? (
+                    {this.state.showUpdate ? 
                         <UpdateUser
                             user={this.state.user}
                             toggleShowUpdate={this.toggleShowUpdate}
                             getSingleUser={this.getSingleUser}
                         />
-                    ) : null}
+                     : null}
                 </div>
             
         );

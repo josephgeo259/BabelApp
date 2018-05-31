@@ -41,16 +41,6 @@ h1 {
 a {
     margin: 10px;
     padding:10px
-}
-
-button{
-border-radius: 5px;
-  padding: 0.25em 1em;
-  margin: 0 1em;
-  background: transparent;
-  color: whitesmoke;
-  border-radius:20px;
-  border: 4px solid ;
 }`
 
 const FormWrapper = styled.div`
@@ -153,7 +143,6 @@ class Users extends Component {
             <FormWrapper>
                     <h1>BABELATOR</h1> <br />
 
-                    <Link to="/login">User Login </Link>
                     <hr />
                     {usersLinks}
                     <button onClick={this.toggleShowNewForm}>Create New User </button>
