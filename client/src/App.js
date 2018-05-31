@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Users from './components/Users'
-import SingleUsers from './components/SingleUser'
+import SingleUser from './components/SingleUser'
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path="/" component={Users} />
-            <Route path="/:id" component={SingleUser} />
+            <Route exact path="/users/:id" component={SingleUser} />
           </Switch>
         </div>
       </Router>
