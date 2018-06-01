@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import UpdateUser from './UpdateUser';
 import styled from 'styled-components';
 
 class SingleUser extends Component {
 
     state = {
         user: {},
-        comments:[],
-        blogs:[],
         showUpdate: false
     }
 
@@ -20,12 +17,6 @@ class SingleUser extends Component {
      componentDidMount() {
        this.getSingleUser()}
 
-    getSingleUser = async () => {
-            const userId = this.props.match.params.id;
-            const res = await axios.get(`/api/users/${userId}`);
-            const user = res.data;
-            this.setState({ user });
-             };
 
     removeUser = () => {
         const userId = this.props.match.params.id;
@@ -37,38 +28,40 @@ class SingleUser extends Component {
                 console.log(err);
             });
     };
+    getSingleUser = async () => {
+        const userId = this.props.match.params.id;
+        const res = await axios.get(`/api/users/${userId}`);
+        const user = res.data;
+        this.setState({ user });
+    };
 
-    handleSubmit = async event => {
+
+    handleSubmit = (event) => {
         event.preventDefault()
         const transferdata = {
-            name: this.state.name,
-            location: this.state.location,
-            spoken_languages: this.state.spoken_languages,
-            learning_interests: this.state.learning_interests
+            name: this.state.user.name,
+            location: this.state.user.location,
+            spoken_languages: this.state.user.spoken_languages,
+            learning_interests: this.state.user.learning_interests
         }
-        await axios.post('/api/users', transferdata);
-        await this.props.getAllUsers()
-    }
-
-    handleChange = (changedUser, event) => {
-        const users = [...this.state.users]
-        const newUsers = users.map((user) => {
-            if (user.id === changedUser.id) {
-                user[event.target.name] = event.target.value
-            }
-            return user
-        })
-        this.setState({ users: newUsers })
-    }
-
-    updateUser = (user) => {
-        console.log("updating the user in the db")
-        console.log("user Id being Updated", this.state.user.id)
-        axios.patch(`/api/users/${this.state.user._id}${user.id}`, { user })
-            .then(res => {
-                this.setState({ users: res.data.user })
+        console.log(" transferdata ", transferdata)
+        const userId = this.state.user.id;
+        axios.put(`/api/users/${userId}`, transferdata)
+            .then((res) => {
+                console.log('From Server', res.data)
+                const user = { ...this.state.user }
+                this.setState({ user })
+            }).then(() => {
+                this.toggleShowUpdate()
             })
+
     }
+
+    handleChange = (event) => {
+        const user = { ...this.state.user };
+        user[event.target.name] = event.target.value;
+        this.setState({ user });
+    };
 
     render() {
 
@@ -77,17 +70,35 @@ class SingleUser extends Component {
                 <div>
                     <h1></h1>
                     <Link to='/'><button>Go Home</button></Link>
+                    <h1>Distinct User</h1>
+                <br />
+                <div>
+                </div>
                     <button onClick={this.removeUser}>Delete User</button>
+
                     <button onClick={this.toggleShowUpdate}>
                         Update {this.state.user.name}
                     </button>
-                    {this.state.showUpdate ? 
-                        <UpdateUser
-                            user={this.state.user}
-                            toggleShowUpdate={this.toggleShowUpdate}
-                            getSingleUser={this.getSingleUser}
-                        />
-                     : null}
+                {this.state.showUpdate ? <form onSubmit={this.handleSubmit}>
+                    <div>
+                        <label htmlFor="name">Name: </label>
+                        <input onChange={this.handleChange} type="text" name="name" placeholder={this.state.user.name} />
+                    </div>
+                    <div>
+                        <label htmlFor="location">Location: </label>
+                        <input onChange={this.handleChange} type="text" name="location" placeholder={this.state.user.location} />
+                    </div>
+                    <div>
+                        <label htmlFor="spoken_languages">Spoken Languages: </label>
+                        <input onChange={this.handleChange} type="text" name="spoken_languages" placeholder={this.state.user.spoken_languages} />
+                    </div>
+                    <div>
+                        <label htmlFor="learning_interests">Learning Interests: </label>
+                        <input onChange={this.handleChange} type="text" name="learning_interests" placeholder={this.state.user.learning_interests} />
+                    </div>
+
+                    <button>Submit</button>
+                </form> : null}
                 </div>
             
         );
