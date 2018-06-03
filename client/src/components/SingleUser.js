@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import styled from 'styled-components';
+import { Button } from 'react-bootstrap';
+
 
 class SingleUser extends Component {
 
@@ -71,6 +72,7 @@ class SingleUser extends Component {
                     <h1></h1>
                     <Link to='/'><button>Go Home</button></Link>
                     <h1>Distinct User</h1>
+
                 <br />
                 <div>
                 </div>
@@ -79,6 +81,9 @@ class SingleUser extends Component {
                     <button onClick={this.toggleShowUpdate}>
                         Update {this.state.user.name}
                     </button>
+                <Link to={`/users/${this.state.user.id}/comments`}><Button>Go to my Comments </Button></Link>
+                <Link to={`/users/${this.state.user.id}/blogs`}><Button>Go to my Blogs </Button></Link>
+
                 {this.state.showUpdate ? <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Name: </label>

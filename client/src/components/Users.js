@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import NewUserForm from './NewUserForm'
-import SingleUser from './SingleUser';
 import styled from 'styled-components';
 
 const UserWrapper = styled.div`
