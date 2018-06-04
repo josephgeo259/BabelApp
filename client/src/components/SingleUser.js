@@ -164,7 +164,7 @@ class SingleUser extends Component {
                     <Button onClick={this.toggleShowUpdate}>
                         Update {this.state.user.name}
                     </Button>
-                <Link to={`/users/${this.state.user.id}/comments`}><Button>Go to my Comments </Button></Link>
+                <Link to={`/users/${this.state.user.id}/comments`}><Button>Go to my Babelator and Comments </Button></Link>
                 <Link to={`/users/${this.state.user.id}/blogs`}><Button>Go to my Blogs </Button></Link>
 
                 {this.state.showUpdate ? <form onSubmit={this.handleSubmit}>

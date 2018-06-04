@@ -151,7 +151,7 @@ class Comments extends Component {
         return (
             <FormWrapper>
             
-                <h1>Welcome to your Comments </h1>
+                <h1>Welcome to your Babelator and Comments </h1>
 
                 {commentData}
                 <Link to='/'><Button> Go Home</Button></Link>
