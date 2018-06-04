@@ -76,11 +76,15 @@ class SingleUser extends Component {
                 <br />
                 <div>
                 </div>
-                    <button onClick={this.removeUser}>Delete User</button>
+                <h3>Name: {this.state.user.name}</h3>
+                <h3>Location: {this.state.user.location}</h3>
+                <h3>Spoken Languages: {this.state.user.spoken_languages}</h3>
+                <h3>Learning Interests: {this.state.user.learning_interests}</h3>
+                    <Button onClick={this.removeUser}>Delete User</Button>
 
-                    <button onClick={this.toggleShowUpdate}>
+                    <Button onClick={this.toggleShowUpdate}>
                         Update {this.state.user.name}
-                    </button>
+                    </Button>
                 <Link to={`/users/${this.state.user.id}/comments`}><Button>Go to my Comments </Button></Link>
                 <Link to={`/users/${this.state.user.id}/blogs`}><Button>Go to my Blogs </Button></Link>
 
