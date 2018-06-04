@@ -2,6 +2,82 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Button } from 'react-bootstrap';
+import styled from 'styled-components';
+
+
+const UserWrapper = styled.div`
+border-radius: 3px;
+padding: 0.25em 1em;
+margin:.25em 9.5em;
+background: transparent;
+color: blanchedalmond;
+border: 100px black;
+text-align: center;
+height: 85vh;
+background-image: url("https://i.imgur.com/mOSH3st.png?1");
+
+body {
+    min-height: 100vh;
+    margin: 0 18em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+section {
+    flex-grow: 1;
+}
+
+a, h3 {
+    font-family: 'Bree Serif', serif;
+    font-size:65px;
+    padding:7px;
+}
+h1 {
+    font-size:130px;
+    padding:7px;
+}
+
+a {
+    margin: 10px;
+    padding:10px
+}`
+const FormWrapper = styled.div`
+border-radius: 3px;
+width: 100%;
+padding:  1em;
+color: goldenrod;
+text-align: center;
+background-color: black;
+
+
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+section {
+    flex-grow: 3;
+}
+
+
+a, h3 {
+    font-family: 'Bree Serif', serif;
+    font-size:35px;
+    padding:7px;
+}
+h1 {
+    font-family: 'Bree Serif', serif;
+    font-size:65px;
+    padding:7px;
+}
+
+a {
+    margin: 10px;
+    padding:10px
+}`
 
 
 class SingleUser extends Component {
@@ -67,7 +143,7 @@ class SingleUser extends Component {
     render() {
 
         return (
-            
+            <FormWrapper>
                 <div>
                     <h1></h1>
                     <Link to='/'><button>Go Home</button></Link>
@@ -76,10 +152,12 @@ class SingleUser extends Component {
                 <br />
                 <div>
                 </div>
+                <UserWrapper>
                 <h3>Name: {this.state.user.name}</h3>
                 <h3>Location: {this.state.user.location}</h3>
                 <h3>Spoken Languages: {this.state.user.spoken_languages}</h3>
                 <h3>Learning Interests: {this.state.user.learning_interests}</h3>
+                </UserWrapper >
                     <Button onClick={this.removeUser}>Delete User</Button>
 
                     <Button onClick={this.toggleShowUpdate}>
@@ -109,7 +187,7 @@ class SingleUser extends Component {
                     <button>Submit</button>
                 </form> : null}
                 </div>
-            
+            </FormWrapper>
         );
     };
 }

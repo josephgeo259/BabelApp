@@ -4,6 +4,80 @@ import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+const UserWrapper = styled.div`
+border-radius: 3px;
+padding: 0.25em 1em;
+margin:.25em 9.5em;
+background: transparent;
+color: blanchedalmond;
+border: 100px black;
+text-align: center;
+height: 85vh;
+background-image: url("https://i.imgur.com/mOSH3st.png?1");
+
+body {
+    min-height: 100vh;
+    margin: 0 18em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+section {
+    flex-grow: 1;
+}
+
+a, h3 {
+    font-family: 'Bree Serif', serif;
+    font-size:65px;
+    padding:7px;
+}
+h1 {
+    font-size:130px;
+    padding:7px;
+}
+
+a {
+    margin: 10px;
+    padding:10px
+}`
+const FormWrapper = styled.div`
+border-radius: 3px;
+width: 100%;
+padding:  8em;
+color: goldenrod;
+text-align: center;
+background-color: black;
+height: 100%;
+
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+section {
+    flex-grow: 3;
+}
+
+
+a, h3 {
+    font-family: 'Bree Serif', serif;
+    font-size:35px;
+    padding:7px;
+}
+h1 {
+    font-family: 'Bree Serif', serif;
+    font-size:65px;
+    padding:7px;
+}
+
+a {
+    margin: 10px;
+    padding:10px
+}`
+
 class Blogs extends Component {
     state = {
         blogs: [],
@@ -116,13 +190,15 @@ class Blogs extends Component {
             )
         })
         return (
-            <div>
+            <FormWrapper>
+            
                 <h1>Welcome to your Blogs </h1>
                             
                         {blogData}
                 <Link to='/'><Button> Go Home</Button></Link>
 
-                    </div>
+             
+                </FormWrapper>
         );
     }
 }
