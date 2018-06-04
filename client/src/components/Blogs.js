@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 class Blogs extends Component {
     state = {
         blogs: [],
+        newBlog: {
+            title: '',
+            description: ''
+        },
         showNewForm: false
     }
 
@@ -56,6 +60,42 @@ class Blogs extends Component {
             })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        const transferdata = {
+            title: this.state.blog.title,
+            description: this.state.blog.description,
+        }
+        console.log(" transferdata ", transferdata)
+        const blogId = this.state.blog.id;
+        axios.post(`/api/users/:user_id/blogs`, transferdata)
+            .then((res) => {
+                console.log('From Server', res.data)
+                const blog = { ...this.state.blog }
+                this.setState({ blog })
+            }).then(() => {
+                this.toggleShowNewForm()
+            })
+
+    } 
+    
+    handleChange = (event) => {
+        const name = event.target.name
+        const newBlog = { ...this.state.newBlog }
+        newBlog[name] = event.target.value
+        this.setState(newBlog)
+    }
+
+    handleSubmit = async event => {
+        event.preventDefault()
+        const transferdata = {
+            title: this.state.blog.title,
+            description: this.state.blog.description,
+        }
+        await axios.post(`/api/users/:user_id/blogs`, transferdata);
+    }
+
+    
   
     render() {
         console.log(this.state.blogs)
@@ -68,25 +108,11 @@ class Blogs extends Component {
                     <br />
                     <h3>Title: {blog.title}</h3>
                     <h3>Post: {blog.post}</h3>
-                    <Button onClick={this.removeUser}>Delete User</Button>
+                    <Button onClick={this.removeBlog}>Delete this Blog</Button>
 
-                    <Button onClick={this.toggleShowNewForm}>
-                        Create a New Blog {this.state.blog.title}
-                    </Button>
-                    {this.state.showUpdate ? <form onSubmit={this.handleSubmit}>
-                        <div>
-                            <label htmlFor="name">Name: </label>
-                            <input onChange={this.handleChange} type="text" name="title" placeholder={this.state.blog.title} />
-                        </div>
-                        <div>
-                            <label htmlFor="location">Location: </label>
-                            <input onChange={this.handleChange} type="text" name="location" placeholder={this.state.blog.post} />
-                        </div>
-                        
-
-                        <button>Submit</button>
-                    </form> : null}
-                </div>
+                   <Button  onClick={this.toggleShowNewForm}>Create New User </Button>
+                  </div> 
+                    
             )
         })
         return (
