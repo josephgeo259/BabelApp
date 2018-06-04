@@ -22,6 +22,7 @@ https://i.imgur.com/S1hWgil.png
 
 # Wireframe: 
 These are the beginning templates for my app. Take a look at the wireframe.
+https://imgur.com/a/VLZaMY1
 
 # Resources:
 classmates 
@@ -37,6 +38,8 @@ bog app
 get create on my blogs and comments
 get delete on my comments and blogs
 Try to add Hondify or a voice translator
+or google translator 
+
 
 
 

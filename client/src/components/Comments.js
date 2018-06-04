@@ -82,6 +82,7 @@ a {
 class Comments extends Component {
     state = {
         comments: [],
+        weather:'',
         showNewForm: false
     }
 
@@ -130,7 +131,7 @@ class Comments extends Component {
                 this.setState({ comments })
             })
     }
-
+    // 392b408c7bd150d7f826e6239b2d5c0f
 
     render() {
         console.log(this.state.blogs)

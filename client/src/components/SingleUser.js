@@ -8,13 +8,14 @@ import styled from 'styled-components';
 const UserWrapper = styled.div`
 border-radius: 3px;
 padding: 0.25em 1em;
-margin:.25em 9.5em;
+margin:.25em 11em;
 background: transparent;
 color: blanchedalmond;
 border: 100px black;
 text-align: center;
 height: 85vh;
 background-image: url("https://i.imgur.com/mOSH3st.png?1");
+background-size: contain;
 
 body {
     min-height: 100vh;
